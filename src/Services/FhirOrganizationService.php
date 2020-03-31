@@ -41,7 +41,7 @@ class FhirOrganizationService
                         FROM facility;";
 
         $facilityResults = sqlStatement($facilitySQL);
-		$results = array();
+        $results = array();
         while ($row = sqlFetchArray($facilityResults)) {
             $row['id'] = 'facility-' . $row['id'];
             $row['code'] = 'prov';
