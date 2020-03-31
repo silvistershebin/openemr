@@ -340,6 +340,7 @@ RestConfig::$ROUTE_MAP = array(
 
 use OpenEMR\RestControllers\FhirPatientRestController;
 use OpenEMR\RestControllers\FhirEncounterRestController;
+use OpenEMR\RestControllers\FhirOrganizationRestController;
 
 RestConfig::$FHIR_ROUTE_MAP = array(
     "POST /fhir/auth" => function () {
@@ -374,5 +375,8 @@ RestConfig::$FHIR_ROUTE_MAP = array(
     },
     "GET /fhir/Organization" => function () {
         return (new FhirOrganizationRestController(null))->getAll($_GET);
+    },
+    "GET /fhir/Organization/:oid" => function ($oid) {
+        return (new FhirOrganizationRestController(null))->getOne($oid);
     }
 );
