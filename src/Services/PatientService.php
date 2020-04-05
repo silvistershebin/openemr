@@ -217,7 +217,7 @@ class PatientService
                    state,
                    country_code,
                    phone_contact,
-                   email
+                   email,
                    DOB,
                    sex,
                    race,
@@ -265,6 +265,10 @@ class PatientService
             if ($search['sex']) {
                 array_push($whereClauses, "sex=?");
                 array_push($sqlBindArray, $search['sex']);
+            }
+            if ($search['country_code']) {
+                array_push($whereClauses, "country_code=?");
+                array_push($sqlBindArray, $search['country_code']);
             }
 
             $sql .= implode(" AND ", $whereClauses);
